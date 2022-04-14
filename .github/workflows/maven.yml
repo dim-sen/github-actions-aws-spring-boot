@@ -65,7 +65,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            docker stop githubActions
+            docker stop github-actions
             docker rmi dimsen0/github-actions:latest
             docker pull dimsen0/github-actions:latest
             docker run -d --rm --name githubActions -p 80:8080 --network actions_network dimsen0/github-actions:latest
