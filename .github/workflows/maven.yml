@@ -53,6 +53,7 @@ jobs:
   deployment:
     name: Deploy
     runs-on: self-hosted
+    needs: build
     steps:
       - uses: actions/checkout@v3
       - name: Deploy using ssh
