@@ -48,7 +48,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/github-actions:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/github-cicd:latest
 
   deployment:
     name: Deploy
@@ -64,7 +64,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            docker stop github-actions
-            docker rmi dimsen0/github-actions:latest
-            docker pull dimsen0/github-actions:latest
-            docker run -d --rm --name github-actions -p 80:8080 --network actions_network dimsen0/github-actions:latest
+            docker stop github-cicd
+            docker rmi dimsen0/github-cicd:latest
+            docker pull dimsen0/github-cicd:latest
+            docker run -d --rm --name github-cicd -p 80:8080 --network actions_network dimsen0/github-cicd:latest
