@@ -59,9 +59,9 @@ jobs:
       - name: Deploy Using ssh
         uses: appleboy/ssh-action@master
         with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          host: ${{ secrets.EC2_SSH_HOST }}
+          username: ${{ secrets.EC2_SSH_USERNAME }}
           port: 22
           script: |
             docker stop github-cicd
